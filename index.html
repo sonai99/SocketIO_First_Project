@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+   <head><title>Hello world</title></head>
+   <script src="socket.io/socket.io.js"></script>
+   <script>
+      var socket = io();
+      // ---> for a default message <---
+      // socket.on('message', function(data){document.write(data)});
+
+      // ---> for a custom function testerEvent <---
+      // socket.on('testerEvent', function(data){ document.write(data.description)}); 
+      
+      // ---> sending events from the client <---
+      // socket.emit('clientEvent', 'Sent an event from the client!!!');
+
+      // ---> Handling broadcast <---
+      // socket.on('broadcast', function(data){
+      //    document.body.innerHTML ='';
+      //    document.write(data.description);
+      // });
+      // ---> Handling newclientconnect <---
+      // socket.on('newclientconnect', function(data){
+      //    document.body.innerHTML = '';
+      //    document.write(data.description);
+      // });
+   </script>
+   <body>Hello world</body>
+</html>
