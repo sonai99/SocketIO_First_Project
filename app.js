@@ -7,6 +7,7 @@ app.get('/',function(req,res){
 });
 
 //whenever someone connects to the page this will execute
+var roomno = 1;
 io.on('connection', function(socket){
     // console.log('A user connected');
     //sends a message after a timeout of 4 seconds
@@ -31,7 +32,7 @@ io.on('connection', function(socket){
     // });
 
     // ---> Broadcast the number of connected clients to all users an event from the Client <---
-    var clients = 0;
+    // var clients = 0;
     // io.on('connection', function(socket){
     //     clients++;
     //     io.sockets.emit('broadcast', { description : clients + 'clients connected!!!'});
@@ -42,15 +43,31 @@ io.on('connection', function(socket){
     // });
 
     // ---> Welcome message to client <---
-    io.on('connection', function(socket){
-        clients++;
-        socket.emit('newclientconnect', {description : 'Hey, Welcome!' });
-        socket.broadcast.emit('newclientconnect', {description : clients + 'clients connected!!!'});
-        socket.on('disconnect', function(){
-            clients--;
-            socket.broadcast.emit('newclientconnect', {description : clients + 'clients connected!!!'});
-        });
-    });
+    // io.on('connection', function(socket){
+    //     clients++;
+    //     socket.emit('newclientconnect', {description : 'Hey, Welcome!' });
+    //     socket.broadcast.emit('newclientconnect', {description : clients + 'clients connected!!!'});
+    //     socket.on('disconnect', function(){
+    //         clients--;
+    //         socket.broadcast.emit('newclientconnect', {description : clients + 'clients connected!!!'});
+    //     });
+    // });
+
+    // ---> Custom Namespace <---
+    // var nsp = io.of('/my-namespace');
+    // nsp.on('connection', function(socket){
+    //     console.log('someone connected');
+    //     nsp.emit('hi', 'Hello Everyone!');
+    // })
+
+    // ---> Rooms <---
+    // socket.join("room-"+roomno);
+    // //send this event to everyone in that room
+    // io.sockets.in("room-"+roomno).emit('connectToRoom', "You are in room no. " + roomno);
+
+    // ---> Rooms <---
+    
+
 })
 
 http.listen(3000, function(){
