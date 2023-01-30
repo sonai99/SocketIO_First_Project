@@ -3,7 +3,7 @@
    <head><title>Hello world</title></head>
    <script src="socket.io/socket.io.js"></script>
    <script>
-      var socket = io();
+      // var socket = io();
       // ---> for a default message <---
       // socket.on('message', function(data){document.write(data)});
 
@@ -23,6 +23,23 @@
       //    document.body.innerHTML = '';
       //    document.write(data.description);
       // });
+
+      // ---> Custom Namespace <---
+      // var socket = io('/my-namespace');
+      // socket.on('hi', function(data){
+      //    document.body.innerHTML = '';
+      //    document.write(data);
+      // });
+
+      // ---> Rooms <---
+      // var socket = io();
+      // socket.on('connectToRoom', function(data){
+      //    document.body.innerHTML='';
+      //    document.write(data);
+      // });
+      
+      // ---> Rooms <---
+      
    </script>
    <body>Hello world</body>
 </html>
